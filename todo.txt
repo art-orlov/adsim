@@ -1,0 +1,4 @@
+We'll get better results with generating click-flow instead of reading existing one
+
+Removing of home page is a bad idea because of any-home-any paths
+

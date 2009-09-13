@@ -1,13 +1,15 @@
-require 'active_support'
-require 'browsing'
+require 'nav'
+require 'orm'
+require 'pp'
 
 module ImportMatrix
   def self.do_import
-    Matrix.new.tap do |matrix|
-      Browsing.get_users.each do |user_id|
-        sessions = Browsing.get_user_sessions user_id
-        
-      end
+    Nav::Matrix.new.tap do |m|
+      m.add_sessions ORM::Browsing.get_sessions
+
+      m.normalize
+
+      pp m.sizes
     end
   end
 end
