@@ -8,6 +8,8 @@ class Nav::Matrix
 
   def add_sessions sessions
     sessions.each do |session|
+      next if session.empty?
+      #pp session
       starts.add_url session.first.url_id
 
       session.each_with_index do |node, index|
@@ -42,12 +44,12 @@ class Nav::Matrix
 #  end
 
   def iterations_count
-    [ spreads.count, starts.total ].max * 10
+    [ spreads.size, starts.total ].max * 10
   end
 
   def final_var iterations = iterations_count
-    Spread.new.tap do |res|
-      1..iterations.each do
+    Nav::Spread.new.tap do |res|
+      (1..iterations).each do
         visited = { (url = starts.random_url) => 1 }
         begin
           url = spreads[url].try(:random_url)

@@ -17,6 +17,7 @@ class Nav::Spread < Array
   end
 
   def random_url
+    #todo ?!?
     guess = rand(total) + 1
     running = 0
     self.each do |node|

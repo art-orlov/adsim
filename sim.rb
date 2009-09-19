@@ -1,6 +1,6 @@
 require 'all'
 
-module Sim
+class Sim
   def import_matrix
     Nav::Matrix.new.tap do |m|
       m.add_sessions ORM::Browsing.get_sessions

@@ -2,6 +2,9 @@ We'll get better results with generating click-flow instead of reading existing 
 
 Removing of home page is a bad idea because of any-home-any paths
 
+#rewrite session import, currently we have a lot of single-page sessions
+#review such sessions
+
 #Для оценки эффекта от выявления виртуальных сообществ в работе алгоритма привлечения пользователей
 #на заданный набор страниц с помощью предложения ссылок была построена имитационная модель
 #навигации пользователей, основанная на применении аппарата марковских цепей, как и сам алгоритм.
@@ -15,3 +18,4 @@ Removing of home page is a bad idea because of any-home-any paths
 #Таким образом, имеет смысл рекомендовать в виде ссылок не сами искомые страницы,
 #а пользовательские заметки, ссылающиеся на требуемые страницы. Итак, можно сформулировать
 #простой критерий отбора ссылок рекомендательного характера:
+
