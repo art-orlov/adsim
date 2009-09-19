@@ -11,7 +11,7 @@ module ORM
         session = sessions[b.window_id] 
         case b.operation
           when 'add'
-            session << Nav::Node.new(b.url_id, b.date)
+            session << Nav::SessionNode.new(b.url_id, b.date)
           when 'remove'
             if !session.empty? and session.last.url_id == b.url_id
               session.last.till b.date

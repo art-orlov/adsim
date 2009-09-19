@@ -1,6 +1,5 @@
-module Nav
-
-end
+module Nav; end
 
 require 'nav/matrix'
-require 'nav/node'
+require 'nav/session_node'
+require 'nav/stat_node'

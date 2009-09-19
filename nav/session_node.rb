@@ -1,4 +1,4 @@
-class Nav::Node
+class Nav::SessionNode
   attr_reader :url_id, :date, :interval
 
   def initialize url_id, date
