@@ -19,3 +19,13 @@ ActiveRecord::Base.establish_connection(
 require 'orm/host'
 require 'orm/url'
 require 'orm/browsing'
+
+#url
+#SELECT * FROM url JOIN HOST ON url.host_id = host.id WHERE url.id = ?
+
+#session
+#SELECT b.date, b.operation, b.window_id, CONCAT(h.full_name, u.file) FROM browsing b
+#LEFT JOIN url u ON b.url_id = u.id
+#LEFT JOIN HOST h ON u.host_id = h.id
+#WHERE b.user_id = ?
+#ORDER BY b.id

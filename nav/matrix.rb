@@ -50,10 +50,12 @@ class Nav::Matrix
   def final_var iterations = iterations_count
     Nav::Spread.new.tap do |res|
       (1..iterations).each do
-        visited = { (url = starts.random_url) => 1 }
+        visited = {}
+        url = starts.random_url
         begin
+          visited[url] = true
+          res.add_url url
           url = spreads[url].try(:random_url)
-          res.add_url url if url
         end while url && !visited[url]
       end
     end

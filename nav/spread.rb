@@ -17,13 +17,12 @@ class Nav::Spread < Array
   end
 
   def random_url
-    #todo ?!?
-    guess = rand(total) + 1
+    guess = Kernel::rand(total) + 1
     running = 0
     self.each do |node|
-      running += node.count
-      return item.url_id if guess >= running
+      running += node.count     
+      return node.url_id if running >= guess 
     end
-    return self[rand(self.size)].url_id
+    return empty? ? nil : self[Kernel::rand(self.size)].url_id
   end
 end
