@@ -1,3 +1,5 @@
+require'set' 
+
 class Nav::Matrix
   attr_reader :spreads, :starts
 
@@ -32,17 +34,6 @@ class Nav::Matrix
     end
   end
 
-#  def normalize
-#    @sources.values.each do |variants|
-#      sum = variants.values.inject(0) { |r, v| r + v }
-#
-#      variants.each { |k, v| variants[k] = 1.0 * v / sum }
-#    end
-#    @start_points.each do |k, v|
-#      @start_points[k] = 1.0 * v / @session_count;
-#    end
-#  end
-
   def iterations_count
     [ spreads.size, starts.total ].max * 10
   end
@@ -59,6 +50,21 @@ class Nav::Matrix
         end while url && !visited[url]
       end
     end
+  end
+
+  def guess_cool_node
+    begin
+      node = spreads.keys.rand
+      l1 = spreads.map do |url, spread|
+        spread.has?(node) ? url : nil
+      end.compact.to_set
+      l2 = spreads.map do |url, spread|
+        l1.any? do |l_node|
+          spread.has? l_node
+        end ? url : nil
+      end.compact.to_set
+    end while starts.has?(node) or l1.size < 2 or l2.size < 2
+    { :node => node, :l1 => l1, :l2 => l2 }
   end
 end
 

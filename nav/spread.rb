@@ -25,4 +25,8 @@ class Nav::Spread < Array
     end
     return empty? ? nil : self[Kernel::rand(self.size)].url_id
   end
+
+  def has? url_id
+    positions.has_key? url_id
+  end
 end

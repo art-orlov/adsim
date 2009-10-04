@@ -11,9 +11,12 @@ class Sim
 
   def make
     matrix = import_matrix
-    #solve equation to get final var
-    var1 = matrix.final_var
-    pp var1
+    #var1 = matrix.final_var #todo try solving equation to get final var
+    #pp var1
+
+    cool_node = matrix.guess_cool_node
+    pp cool_node
+    #todo modify l2 spreads
   end
 end
 
